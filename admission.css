@@ -1,0 +1,85 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f9fbfe;
+    color: #333;
+  }
+  
+  /* Section */
+  .admission-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    background: #fff;
+  }
+  
+  .admission-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .admission-header h1 {
+    font-size: 36px;
+    color: #003366;
+  }
+  
+  .admission-header p {
+    font-size: 18px;
+    color: #555;
+    max-width: 800px;
+    margin: 10px auto;
+  }
+  
+  .admission-block {
+    background: #f1f6fb;
+    border-left: 6px solid #0055a5;
+    padding: 20px 30px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+  }
+  
+  .admission-block h2 {
+    font-size: 24px;
+    color: #003366;
+    margin-bottom: 15px;
+  }
+  
+  .admission-block p,
+  .admission-block li,
+  .admission-block td {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .admission-block ul, .admission-block ol {
+    padding-left: 20px;
+  }
+  
+  .admission-block a {
+    color: #0077cc;
+    text-decoration: none;
+  }
+  
+  .admission-block a:hover {
+    text-decoration: underline;
+  }
+  
+  .admission-block table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .admission-block table th,
+  .admission-block table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+    background-color: #fff;
+  }
+  
+  .contact p {
+    margin: 6px 0;
+  }
+  

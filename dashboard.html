@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - BRAC University</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f5f7fa;
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: #1e3c72;
+      color: white;
+      padding: 20px;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 30px;
+      font-size: 22px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #163059;
+    }
+
+    .main {
+      flex-grow: 1;
+      padding: 30px;
+    }
+
+    .main h1 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #1e3c72;
+    }
+
+    iframe {
+      width: 100%;
+      height: 80vh;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <a href="#" onclick="loadPage('applications.html')">📄 Applications</a>
+    <!-- <a href="#" onclick="loadPage('add-notice.html')">📢 Add Notice</a>
+    <a href="#" onclick="loadPage('view-notice.html')">🗂 View Notices</a>
+    <a href="#" onclick="loadPage('add-event.html')">📅 Add Event</a>
+    <a href="#" onclick="loadPage('view-event.html')">🎉 View Events</a> -->
+    <a href="index.html">🔐 Logout</a>
+  </div>
+
+  <div class="main">
+    <h1>Dashboard</h1>
+    <iframe id="dashboardContent" src="applications.html"></iframe>
+  </div>
+
+  <script>
+    function loadPage(page) {
+      document.getElementById('dashboardContent').src = page;
+    }
+  </script>
+</body>
+</html>

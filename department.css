@@ -1,0 +1,76 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #eef2f5;
+    color: #333;
+  }
+  
+  /* Header Section */
+  .departments-section {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    background-color: #fff;
+  }
+  
+  .departments-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .departments-header h2 {
+    font-size: 38px;
+    color: #003366;
+    margin-bottom: 10px;
+  }
+  
+  .departments-header p {
+    font-size: 18px;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  /* Grid */
+  .departments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+  
+  /* Cards */
+  .department-card {
+    background-color: #fafafa;
+    padding: 25px;
+    border-left: 6px solid #003366;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+  }
+  
+  .department-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+  
+  .department-card h3 {
+    color: #003366;
+    margin-bottom: 15px;
+  }
+  
+  .department-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  .department-card a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  
+  .department-card a:hover {
+    text-decoration: underline;
+  }
+  

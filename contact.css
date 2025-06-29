@@ -1,0 +1,36 @@
+body {
+    background-color: #f8fafd;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+  }
+  
+  h1, h4 {
+    font-weight: 700;
+  }
+  
+  p {
+    margin-bottom: 0.5rem;
+  }
+  
+  .btn-outline-primary,
+  .btn-outline-info {
+    border-radius: 30px;
+  }
+  
+  form .form-control {
+    border-radius: 10px;
+    box-shadow: none;
+    border: 1px solid #ced4da;
+  }
+  
+  form .btn {
+    border-radius: 10px;
+  }
+  
+  iframe {
+    border: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+  

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Apply Now - BRAC University</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- ✅ Firebase SDKs v8 -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+  <script>
+    // ✅ Firebase Configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAeewvsO23ceYe0yKtuzwBZXHoWMnqPdGE",
+      authDomain: "brac-apply-form-57f64.firebaseapp.com",
+      projectId: "brac-apply-form-57f64",
+      storageBucket: "brac-apply-form-57f64.appspot.com",
+      messagingSenderId: "649205660675",
+      appId: "1:649205660675:web:0aa640d54ae702b487a236",
+      databaseURL: "https://brac-apply-form-57f64-default-rtdb.firebaseio.com"
+    };
+
+    // ✅ Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #dfe9f3, #ffffff);
+      margin: 0;
+      padding: 0;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+      color: #1e3c72;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background-color: #4facfe;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #1e3c72;
+    }
+    .success {
+      text-align: center;
+      color: green;
+      font-weight: bold;
+      display: none;
+      margin-top: 20px;
+    }
+    .small-text {
+      font-size: 0.9em;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .small-text a {
+      color: #1e3c72;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Apply to BRAC University</h2>
+    <form id="applyForm">
+      <label>Full Name:</label>
+      <input type="text" name="name" required>
+
+      <label>Email:</label>
+      <input type="email" name="email" required>
+
+      <label>Phone Number:</label>
+      <input type="tel" name="phone" required>
+
+      <label>Department:</label>
+      <select name="department" required>
+        <option value="">Select</option>
+        <option value="CSE">Computer Science & Engineering (CSE)</option>
+        <option value="EEE">Electrical and Electronic Engineering (EEE)</option>
+        <option value="BBA">Business Administration (BBA)</option>
+        <option value="ENG">English</option>
+      </select>
+
+      <label>Why do you want to apply?</label>
+      <textarea name="message" rows="4" required></textarea>
+
+      <button type="submit">Submit Application</button>
+      <p class="small-text">Back to home <a href="index.html">Home</a></p>
+    </form>
+
+    <div class="success" id="successMessage">Application submitted successfully!</div>
+  </div>
+
+  <!-- ✅ Firebase Form Submission Script -->
+  <script>
+    const database = firebase.database();
+    const form = document.getElementById('applyForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = form.name.value;
+      const email = form.email.value;
+      const phone = form.phone.value;
+      const department = form.department.value;
+      const message = form.message.value;
+
+      database.ref('applications').push({
+        name,
+        email,
+        phone,
+        department,
+        message,
+        submittedAt: new Date().toISOString()
+      })
+      .then(() => {
+        successMessage.style.display = 'block';
+        form.reset();
+      })
+      .catch((error) => {
+        alert("Error submitting form: " + error.message);
+      });
+    });
+  </script>
+
+</body>
+</html>

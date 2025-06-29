@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Submitted Applications - BRAC University</title>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #1e3c72;
+      margin-bottom: 30px;
+    }
+
+    .application-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: #f9fbfc;
+    }
+
+    .application-card p {
+      margin: 8px 0;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .application-card strong {
+      color: #1e3c72;
+    }
+
+    .logout-btn {
+      display: block;
+      width: fit-content;
+      margin: 0 auto 20px auto;
+      background-color: #1e3c72;
+      color: white;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    .logout-btn:hover {
+      background-color: #163059;
+    }
+
+    .small-text {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .small-text a {
+      color: #1e3c72;
+      text-decoration: none;
+    }
+
+    .small-text a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Submitted Applications</h2>
+    <div id="applicationList"></div>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+    <p class="small-text">Back to Dashboard <a href="dashboard.html">Dashboard</a></p>
+  </div>
+
+  <script>
+    // ✅ Correct Firebase config and URL
+    const firebaseConfig = {
+      apiKey: "AIzaSyAeewvsO23ceYe0yKtuzwBZXHoWMnqPdGE",
+      authDomain: "brac-apply-form-57f64.firebaseapp.com",
+      projectId: "brac-apply-form-57f64",
+      storageBucket: "brac-apply-form-57f64.appspot.com",
+      messagingSenderId: "649205660675",
+      appId: "1:649205660675:web:0aa640d54ae702b487a236",
+      databaseURL: "https://brac-apply-form-57f64-default-rtdb.firebaseio.com"
+    };
+
+    // ✅ Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // ✅ Check if user is logged in
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        alert("You must be logged in to view applications.");
+        window.location.href = "login.html";
+        return;
+      }
+
+      // ✅ Load applications from Firebase Realtime Database
+      const db = firebase.database().ref("applications");
+      db.on("value", snapshot => {
+        const data = snapshot.val();
+        const listDiv = document.getElementById("applicationList");
+        listDiv.innerHTML = "";
+
+        if (!data) {
+          listDiv.innerHTML = "<p>No applications found.</p>";
+          return;
+        }
+
+        for (let id in data) {
+          const app = data[id];
+          const card = document.createElement("div");
+          card.className = "application-card";
+          card.innerHTML = `
+            <p><strong>Name:</strong> ${app.name}</p>
+            <p><strong>Email:</strong> ${app.email}</p>
+            <p><strong>Phone:</strong> ${app.phone}</p>
+            <p><strong>Department:</strong> ${app.department}</p>
+            <p><strong>Message:</strong> ${app.message}</p>
+            <p><strong>Submitted:</strong> ${app.submittedAt || "N/A"}</p>
+          `;
+          listDiv.appendChild(card);
+        }
+      });
+    });
+
+    // ✅ Logout function
+    function logout() {
+      firebase.auth().signOut().then(() => {
+        alert("Logged out successfully.");
+        window.location.href = "login.html";
+      });
+    }
+  </script>
+
+</body>
+</html>

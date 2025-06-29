@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brac University Portal</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="admission.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">BracU Web Portal</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="academics.html">Academics</a></li>
+          <li class="nav-item"><a class="nav-link" href="department.html">Departments</a></li>
+          <li class="nav-item"><a class="nav-link" href="admission.html">Admission</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+
+<img src ="New folder/download.png">
+ <a href="#admission" class="btn btn-primary mt-3 px-4 py-2">Research</a>
+ <a href="#admission" class="btn btn-primary mt-3 px-4 py-2">Transport</a>
+ <a href="#admission" class="btn btn-primary mt-3 px-4 py-2">Library</a>
+ <a href="#admission" class="btn btn-primary mt-3 px-4 py-2">News</a>
+ <a href="#admission" class="btn btn-primary mt-3 px-4 py-2">Announcement</a>
+ <a href="#admission" class="btn btn-primary mt-3 px-4 py-2">Faculty and Staff</a>
+ <a href="#admission" class="btn btn-primary mt-3 px-4 py-2">Alumni</a>
+ <a href="#admission" class="btn btn-primary mt-3 px-4 py-2">Career</a>
+ <a href="#admission" class="btn btn-primary mt-3 px-4 py-2">Make a Donation</a>
+ <a href="#admission" class="btn btn-primary mt-3 px-4 py-2">Academic Calender</a>
+</section>
+ 
+
+  <section class="admission-section">
+    <div class="admission-header">
+      <h1>Admission at Brac University</h1>
+      <p>Learn how to apply, important dates, eligibility criteria, tuition fees, and available scholarships.</p>
+    </div>
+
+    <!-- Admission Requirements -->
+    <div class="admission-block">
+      <h2>Undergraduate Admission Requirements</h2>
+      <ul>
+        <li>Minimum GPA of 3.5 in both SSC and HSC or equivalent</li>
+        <li>IELTS 5.5+ or English Proficiency Test (if applicable)</li>
+        <li>Valid National ID/Birth Certificate and academic transcripts</li>
+      </ul>
+    </div>
+
+    <!-- Important Dates -->
+    <div class="admission-block">
+      <h2>Important Dates</h2>
+      <table>
+        <thead>
+          <tr><th>Event</th><th>Date</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Admission Open</td><td>May 15, 2025</td></tr>
+          <tr><td>Application Deadline</td><td>June 30, 2025</td></tr>
+          <tr><td>Admission Test</td><td>July 6, 2025</td></tr>
+          <tr><td>Orientation</td><td>August 20, 2025</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Application Process -->
+    <div class="admission-block">
+      <h2>How to Apply</h2>
+      <ol>
+        <li>Visit the <a href="https://www.bracu.ac.bd/admissions">BracU Admission Portal</a>.</li>
+        <li>Create an applicant account and fill in the required details.</li>
+        <li>Upload scanned documents and submit the application fee.</li>
+        <li>Download admit card and attend admission test/interview.</li>
+      </ol>
+    </div>
+
+    <!-- Tuition & Fees -->
+    <div class="admission-block">
+      <h2>Tuition & Fees</h2>
+      <p><strong>Undergraduate (per credit):</strong> BDT 6,000 – 8,000 depending on department</p>
+      <p><strong>Other fees:</strong> Admission Fee, Lab Fee, Library Fee as applicable</p>
+    </div>
+
+    <!-- Scholarships -->
+    <div class="admission-block">
+      <h2>Scholarships & Financial Aid</h2>
+      <ul>
+        <li>Merit Scholarships (based on GPA or admission test results)</li>
+        <li>Need-based Financial Aid (up to 100%)</li>
+        <li>Freedom Fighter Quota Waiver</li>
+        <li>Special Women in STEM Scholarships</li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="admission-block contact">
+      <h2>Contact Admission Office</h2>
+      <p><strong>Email:</strong> admission@bracu.ac.bd</p>
+      <p><strong>Phone:</strong> +880-2-9844051</p>
+      <p><strong>Office Hours:</strong> 9:00 AM – 5:00 PM (Sunday to Thursday)</p>
+    </div>
+
+  </section>
+
+  <script>
+    fetch("nav.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("nav-placeholder").innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>
